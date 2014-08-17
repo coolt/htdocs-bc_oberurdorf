@@ -35,9 +35,11 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
         <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
         <link href="lightbox/css/lightbox.css" rel="stylesheet" />
         <link href='http://fonts.googleapis.com/css?family=Open+Sans|Baumans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/font-awesome.min.css">
         
         <script src="js/modernizr.js"></script>
         <script src="js/respond.min.js"></script>
+
         
         <!-- include extern jQuery file but fall back to local file if extern one fails to load !-->
         <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
@@ -47,6 +49,17 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
         <script src="js/prefixfree.min.js"></script>
         <script src="js/jquery.slides.min.js"></script>
         
+        <script src="js/showdown.js"></script>
+<style>
+.clearfix:after {
+   content: " "; /* Older browser do not support empty content */
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+</style>
+
         <!--[if lt IE 9]>
             <style>
                 header
@@ -65,8 +78,8 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
         $(function() {
           $('#slides').slidesjs({	
             height: 235,
-            navigation: false,
-            pagination: false,
+            navigation: true,
+            pagination: true,
             effect: {
               fade: {
                 speed: 400
@@ -91,11 +104,17 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
           });
         });
         </script>
+<script>
+$(document).ready(function() {
+    var converter = new Showdown.converter();
+    $('#text_intro').replaceWith(converter.makeHtml($('#text_intro').text()));
+})
+</script>
 	</head>
 
 	<body>
-        <header>            
-            <h1>Badmintonclub Oberurdorf</h1>
+        <header>
+            <h1 class="hidden">Badmintonclub Oberurdorf</h1>
             <p></p>
             
             <select id="alternative_menu" size="1">
@@ -111,63 +130,112 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
             	<h2 class="hidden">Our navigation</h2>
                 <ul>
                     <li><a href="javascript:void(0)">Home</a></li>
-                    <li><a href="javascript:void(0)">Porfolio</a></li>
-                    <li><a href="javascript:void(0)">About</a></li>
-                    <li><a href="javascript:void(0)">Contact</a></li>
+                    <li><a href="javascript:void(0)">Programm</a></li>
+                    <li><a href="javascript:void(0)">Spielort</a></li>
+                    <li><a href="javascript:void(0)">Verein</a></li>
+                    <li><a href="javascript:void(0)">Kontakt</a></li>
                 </ul>
             </nav>
         </header>
         <section class="container">
         	<h2 class="hidden">Lorem Ipsum</h2>
-            <article id="slider_content1">
-                <h3>Lorem ipsum dolor?</h3>
-                <p>Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik. <a href="javascript:void(0)" class="responsive_button">Mehr lesen...</a></p>
+            <article class="slider_content" id="slider_content1">
+                <h3>Sport, Spiel, Spass</h3>
+                <p> Wir haben einfach den Plausch am Sport, möchten regelmässig spielen, aber ohne Verpflichtung, Aemter und Turniere.</p>
+
+            </article>
+            <article class="slider_content" id="slider_content2">
+                <h3>Nächste Trainings</h3>
+                <ul>
+                <li>Freitag 22. August, 20 Uhr</li>
+                <li>Freitag 29. August, 20 Uhr</li>
+                <li>Freitag 5. September : kein Training <a href="javascript:void(0)" class="responsive_button">Mehr lesen...</a></li>
+                </ul>
                 <a class="button" href="javascript:void(0)">Mehr lesen</a>
             </article>
-            <article id="slider_content2">
-                <h3>Nulla consequat</h3>
-                <p>Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien. Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen. <a href="javascript:void(0)" class="responsive_button">Mehr lesen...</a></p>
-                <a class="button" href="javascript:void(0)">Mehr lesen</a>
-            </article>
-            <article id="slider_content3">
-                <h3>Lorem ipsum</h3>
-                <p>Nicht einmal von der allmächtigen Interpunktion werden die Blindtexte beherrscht – ein geradezu unorthographisches Leben. <a href="javascript:void(0)" class="responsive_button">Mehr lesen...</a></p>
+            <article class="slider_content" id="slider_content3">
+                <h3>Sporthalle Kanti Urdorf</h3>
+                <p>Kantonsschule Limmattal<br>
+                 In der Luberzen 34<br>
+                 Alte Turnhalle <a href="javascript:void(0)" class="responsive_button">Mehr lesen...</a></p>
                 <a class="button" href="javascript:void(0)">Mehr lesen</a>
             </article>
             <div id="slides">
-                <img src="img/slide3.jpg" alt="Some alt text">
-                <img src="img/slide2.jpg" alt="Some alt text">    	
                 <img src="img/slide1.jpg" alt="Some alt text">
+                <img src="img/slide2.jpg" alt="Some alt text">    	
+                <img src="img/slide3.jpg" alt="Some alt text">
             </div>
         </section>
         <section id="spacer">  
         	<h2 class="hidden">Dolor sit amet</h2>          
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit?</p>
-            <div class="search">
-                <form action="#">
-                    <input type="text" name="sitesearch" value="Enter a word..."/>
-                    <input type="submit" name="start_search" class="button" value="Search"/>
-                </form>
-            </div>            
+            <p>
+            <span class="date_circle"><span class="date_day">22</span><span class="date_month">Aug</span></span>
+            <span class="date_text">Training</span>
+            <span class="date_circle"><span class="date_day">29</span><span class="date_month">Aug</span></span>
+            <span class="date_text">Training</span>
+            <span class="date_circle date_circle_no"><span class="date_day">5</span><span class="date_month">Sep</span></span>
+            <span class="date_text">kein Training</span>
+            </p>
+        </section>
+        <section id="text_columns" class="clearfix">
+                <h2 class="hidden">Blindtext</h2>
+                <article class="column1">
+<div id="text_intro">
+# Badminton Club Oberurdorf
+
+Der Badminton-ClubOberurdorf existiert schon seit über 20 Jahren.
+
+Wir haben einfach den Plausch am Sport, möchten regelmässig spielen, aber ohne Verpflichtung, Aemter und Turniere.
+
+Wir sind wild gemischt, Mannen und Frauen, 20-Jährige ebenso wie Mitfünziger. 
+
+Wir sind zur Zeit 25 Aktivmitglieder und suchen neue Mitspieler, die ebenso Spass an diesem attraktiven Sport haben!
+
+Mitmachen kannst Du bei uns, sobald Du 18 Jahre alt bist, Vorkenntnisse brauchst Du nicht, es gilt Learning by doing. 
+
+Wir haben eine der beiden "alten" Sporthallen in der Kantonsschule Limmattal gemietet, und zwar jeden Freitag von 20.00 bis 22.00 Uhr. Die Halle hat 4 Spielfelder. Wartezeiten gibt's bei uns deshalb nicht!
+
+Der Jahresbeitrag als Aktivmitglied beträgt CHF 140.00. Wenn Du jeden der ca. 40 Abende pro Jahr spielen gehst, zahlst Du genau Fr. 3.50 für knapp zwei Stunden Spielzeit.
+
+Interessiert? Komm doch einfach vorbei, frage nach Rainer, Markus oder Curzio!
+
+Kontakt
+
+Unter News findest Du das aktuelle Jahresprogramm.
+</div>
+            </article>
+            <section class="column2">
+            	<h3 class="hidden">Lorem Impsum</h3>
+                <article class="row">  
+                	<h4 class="hidden">Dolor sit</h4>                  
+                    <img src="img/Objects-Rocket-icon.png" width="80" class="rocket" alt="Some alt text"/>
+                    <p>Und wenn es nicht umgeschrieben wurde, dann benutzen Sie es immernoch.</p>
+                </article> 
+                <article class="row">
+                	<h4 class="hidden">Ipsum</h4>                
+                    <img src="img/Measurement-Units-Time-icon.png" width="80" class="clock" alt="Some alt text"/>
+                    <p>Doch alles Gutzureden konnte es nicht überzeugen und so dauerte es nicht lange.</p>
+                </article>   
+            </section>
         </section>
         <section id="boxcontent">
         	<h2 class="hidden">Adipiscing</h2>
             <article>            	               
-                <img src="img/icon.png" alt="Some alt text"/>                
+                <img src="img/Buzz-Private-icon.png" alt="Some alt text"/>                
                 <h3>Lorem ipsum</h3>
                 <p>        	
                     Eines Tages aber beschloß eine kleine Zeile Blindtext, ihr Name war Lorem Ipsum, hinaus zu gehen. 
                 </p>
             </article>
             <article>            	     
-                <img src="img/icon2.png" alt="Some alt text"/>              
+                <img src="img/Industry-Engineering-icon.png" alt="Some alt text"/>              
                 <h3>Consectetuer</h3>
                 <p>        	
                     Der große Oxmox riet ihr davon ab, da es dort wimmele von bösen Kommata, wilden Fragezeichen...
                 </p>
             </article>
             <article>            	    
-                <img src="img/icon3.png" alt="Some alt text"/>                
+                <img src="img/Cell-Phones-Iphone-icon.png" alt="Some alt text"/>                
                 <h3>Dolor sit amet</h3>
                 <p>        	
                     Es packte seine sieben Versalien, schob sich sein Initial in den Gürtel und machte sich auf den Weg.
@@ -243,38 +311,17 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
             <br class="clear"/>
         </section>
         
-        <section id="text_columns">
-        	<h2 class="hidden">Blindtext</h2>
-            <article class="column1">    
-                <h3>Dolor sit amet</h3>
-                <p>Unterwegs traf es eine Copy. Die Copy warnte das Blindtextchen, da, wo sie herkäme wäre sie zigmal umgeschrieben worden und alles, was von ihrem Ursprung noch übrig wäre, sei das Wort "und" und das Blindtextchen solle umkehren und wieder in sein eigenes, sicheres Land zurückkehren.</p>
-                    <p>Doch alles Gutzureden konnte es nicht überzeugen und so dauerte es nicht lange, bis ihm ein paar heimtückische Werbetexter auflauerten, es mit Longe und Parole betrunken machten und es dann in ihre Agentur schleppten, wo sie es für ihre Projekte wieder und wieder mißbrauchten.</p>
-            </article>
-            <section class="column2">
-            	<h3 class="hidden">Lorem Impsum</h3>
-                <article class="row">  
-                	<h4 class="hidden">Dolor sit</h4>                  
-                    <img src="img/icon.png" width="80" class="rocket" alt="Some alt text"/>
-                    <p>Und wenn es nicht umgeschrieben wurde, dann benutzen Sie es immernoch.</p>
-                </article> 
-                <article class="row">
-                	<h4 class="hidden">Ipsum</h4>                
-                    <img src="img/icon.png" width="80" class="clock" alt="Some alt text"/>
-                    <p>Doch alles Gutzureden konnte es nicht überzeugen und so dauerte es nicht lange.</p>
-                </article>   
-            </section>
-        </section>
         <footer>
         	<h2 class="hidden">Our footer</h2>
             <section id="copyright">
             	<h3 class="hidden">Copyright notice</h3>
                 <div class="wrapper">
                     <div class="social">
-                        <a href="javascript:void(0)"><img src="img/icon.png" alt="Some alt text" width="25"/></a>
-                        <a href="javascript:void(0)"><img src="img/icon.png" alt="Some alt text" width="25"/></a>
-                        <a href="javascript:void(0)"><img src="img/icon.png" alt="Some alt text" width="25"/></a>
-                        <a href="javascript:void(0)"><img src="img/icon.png" alt="Some alt text" width="25"/></a>
-                        <a href="javascript:void(0)"><img src="img/icon.png" alt="Some alt text" width="25"/></a>
+                        <a href="javascript:void(0)"><img src="img/Social-Networks-Bebo-icon.png" alt="Some alt text" width="25"/></a>
+                        <a href="javascript:void(0)"><img src="img/Social-Networks-Google-plus-icon.png" alt="Some alt text" width="25"/></a>
+                        <a href="javascript:void(0)"><img src="img/Logos-Tumblr-icon.png" alt="Some alt text" width="25"/></a>
+                        <a href="javascript:void(0)"><img src="img/Logos-Youtube-icon.png" alt="Some alt text" width="25"/></a>
+                        <a href="javascript:void(0)"><img src="img/Social-Networks-Xing-icon.png" alt="Some alt text" width="25"/></a>
                     </div>
                     &copy; Copyright 2012 by <a href="http://www.example.com">Example</a>. All Rights Reserved.
                 </div>
