@@ -19,14 +19,14 @@ Website BC Oberurdorf
   - Bild
   - ÖV
   
-- Kontakt
-  - Kontaktpersonen mit Natel
-  - Kontaktmail
-  
 - Verein
   - Personen mit Funktionen
   - Statuten
   - Vereinsanlässe
+  
+- Kontakt
+  - Kontaktpersonen mit Natel
+  - Kontaktmail
 
 # Template 
 
@@ -68,4 +68,9 @@ Evtl.
 # Ideen
 
 - Kreise für Kalender:
-  http://themeforest.net/item/ichurch-onepage-multipage-church-template/full_screen_preview/6904002?ref=hdalive
+  <http://themeforest.net/item/ichurch-onepage-multipage-church-template/full_screen_preview/6904002?ref=hdalive>
+
+# Todo
+
+- remove bullets from `slider_content` liste and fix the indent
+- use superslides (contesto) for top slideshow
