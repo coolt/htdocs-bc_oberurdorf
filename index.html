@@ -49,7 +49,7 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
         <script src="js/prefixfree.min.js"></script>
         <script src="js/jquery.slides.min.js"></script>
         
-        <script src="js/showdown.js"></script>
+        <script src="js/marked.js"></script>
 <style>
 .clearfix:after {
    content: " "; /* Older browser do not support empty content */
@@ -105,9 +105,13 @@ To minimize the amount of HTTP requests combine all CSS files into one single fi
         });
         </script>
 <script>
+
 $(document).ready(function() {
-    var converter = new Showdown.converter();
-    $('#text_intro').replaceWith(converter.makeHtml($('#text_intro').text()));
+    elements = document.getElementsByTagName('md');
+    console.log(elements);
+    for (var i = 0; i < elements.length; i++) {
+         elements[i].outerHTML = marked(elements[i].innerHTML);
+    }
 })
 </script>
 	</head>
@@ -180,7 +184,7 @@ $(document).ready(function() {
         <section id="text_columns" class="clearfix">
                 <h2 class="hidden">Blindtext</h2>
                 <article class="column1">
-<div id="text_intro">
+<md>
 # Badminton Club Oberurdorf
 
 Der Badminton-ClubOberurdorf existiert schon seit über 20 Jahren.
@@ -202,7 +206,7 @@ Interessiert? Komm doch einfach vorbei, frage nach Rainer, Markus oder Curzio!
 Kontakt
 
 Unter News findest Du das aktuelle Jahresprogramm.
-</div>
+</md>
             </article>
             <section class="column2">
             	<h3 class="hidden">Lorem Impsum</h3>
